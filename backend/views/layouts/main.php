@@ -26,52 +26,21 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
+<div class="wrap h-100 d-flex flex-column">
+   
+    <?php echo $this->render('_header') ?>
 
 
+    <main class="d-flex">
+        <?php echo $this->render('_sidebar') ?>
+        <div class="content-wrapper p-3">
+            <?= Alert::widget() ?>
+            <?= $content ?>
+        </div>
 
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl
-    ]);
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $menuItems[] = [
-            'label' => 'Logout ('.Yii::$app->user->identity->username.')',
-            'url' => ['/site/logout/'],
-            'linkOptions' => [
-                'data-method' => 'post'
-            ]
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav ml-auto'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
-    ?>
+    </main>
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
 </div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
 
 <?php $this->endBody() ?>
 </body>
