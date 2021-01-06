@@ -12,7 +12,9 @@ use yii\web\Link;
 
 <div class="video-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['enctype' => 'multipart/form-data']
+    ]); ?>
 
     <div class="row">
         <div class="col-sm-8">
@@ -20,14 +22,24 @@ use yii\web\Link;
 
             <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
+            <div class="form-group">
+                <label><?php echo $model->getAttributeLabel('thumbnail');?></label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="thumbnail" 
+                    aria-describedby="inputGroupFileAddon01" name="thumbnail">
+                    <label class="custom-file-label" for="thumbnail">Choose file</label>
+                </div>
+            </div>
+
             <?= $form->field($model, 'tags')->textInput(['maxlength' => true]) ?>
         </div> 
 
         <div class="col-sm-4">
-            <div class="embed-responsive embed-responsive-16by9">
+            <div class="embed-responsive embed-responsive-16by9 mb-3">
                 <video  class="embed-responsive-item" 
+                        poster = "<?=$model->thumbnailLink; ?>"
                         src="<?=$model->videoLink;?>" 
-                        controls ></video>
+                        controls controlslist='nofullscreen' ></video>
             </div>
             
             <div class="mb-3">
@@ -42,9 +54,8 @@ use yii\web\Link;
                 <?=$model->video_name;?>
             </div>
 
-            <?= $form->field($model, 'status')->textInput() ?>
+            <?= $form->field($model, 'status')->dropDownList($model->statusLabel) ?>
         </div>
-
 
     </div>
 

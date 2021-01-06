@@ -22,7 +22,7 @@ class VideoController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
@@ -90,8 +90,11 @@ class VideoController extends Controller
     {
         $model = $this->findModel($id);
 
+        $model->thumbnail = UploadedFile::getInstanceByName('thumbnail');
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->video_id]);
+        //if(Yii::$app->request->post() && $model->save() ) {
+            return $this->redirect(['update', 'id' => $model->video_id]);
         }
 
         return $this->render('update', [
