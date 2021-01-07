@@ -17,6 +17,12 @@ use yii\web\Link;
     ]); ?>
 
     <div class="row">
+        <div class="col-sm-12">
+            <?=$form->errorSummary($model); ?>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="col-sm-8">
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
