@@ -25,13 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'video_id',
             'title',
-            'description:ntext',
             'tags',
             'status',
             //'has_thumbnail',
             //'video_name',
-            //'created_at',
-            //'updated_at',
+            'created_at:date',
+            'updated_at_datetime',
             //'created_by',
 
             ['class' => 'yii\grid\ActionColumn'],
