@@ -23,7 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'video_id',
+            [
+                'attribute' => 'video_id',
+                'content' => function($model){
+                    return $this->render('_video_item', ['model'=>$model]);
+                }
+            ],
+            [
+                'attribute' => 'status',
+                'content' => function($model){
+                    return $model->getStatusLabel()[$model->status];
+                }
+            ],
             'title',
             'tags',
             'status',
