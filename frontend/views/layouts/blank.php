@@ -3,13 +3,11 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 
-use frontend\assets\AppAsset;
+use backend\assets\AppAsset;
 use yii\helpers\Html;
-use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
-
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
@@ -19,22 +17,16 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <?php $this->head() ?>
 </head>
-<body>
+<body class="blank">
 <?php $this->beginBody() ?>
 
-<div class="wrap h-100 d-flex flex-column">
-    <?php echo $this->render('_header') ?>
+<div class="container">
 
-    <main class="d-flex">
-        <?php echo $this->render('_sidebar') ?>
-        <div class="content-wrapper p-3">
-            <?= Alert::widget() ?>
-            <?= $content ?>
-        </div>
-    </main>
+    <div class="wrap">
+        <?= $content ?>
+    </div>
 
 </div>
 
