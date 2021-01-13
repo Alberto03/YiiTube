@@ -89,7 +89,6 @@ class Video extends \yii\db\ActiveRecord
         ];
     }
 
-
     /**
      * {@inheritdoc}
      */
