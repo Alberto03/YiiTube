@@ -50,7 +50,14 @@ class VideoController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Video::find()
                 ->creator(Yii::$app->user->id)
-                ->latest()
+           //     ->latest()
+           ,
+           'sort' => [
+               'defaultOrder' => [
+                    'created_at' => SORT_DESC,
+                    'title' => SORT_ASC
+                ]
+           ]
         ]);
 
         return $this->render('index', [

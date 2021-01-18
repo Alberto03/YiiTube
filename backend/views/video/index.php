@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             [
-                'attribute' => 'video_id',
+                'attribute' => 'title',
                 'content' => function($model){
                     return $this->render('_video_item', ['model'=>$model]);
                 }
