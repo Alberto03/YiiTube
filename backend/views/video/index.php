@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\i18n\Formatter;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -40,11 +41,28 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
             //'has_thumbnail',
             //'video_name',
-            'created_at:date',
-            'updated_at_datetime',
+            [
+                'attribute'=> 'created_at',
+                //'format' => ['date', 'php:Y-m-d'],
+                'content' => function($data){
+                  return Yii::$app->formatter->asDateTime($data->created_at, 'long');
+                }  , 
+            ],
+            'updated_at:datetime',
             //'created_by',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{delete}',
+                'buttons' => [
+                    'delete' => function ($url){
+                        return Html::a('Elimina', $url, [
+                            'data-method' => 'POST'
+                        ]);
+                    }
+                ],
+                'visibleButtons' => ['delete'],
+            ],
         ],
     ]); ?>
 
