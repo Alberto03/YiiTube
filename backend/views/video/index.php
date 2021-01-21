@@ -53,11 +53,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{delete}',
                 'buttons' => [
                     'delete' => function ($url){
-                        return Html::a('Elimina', $url, [
-                            'data-method' => 'POST'
+                        return Html::a('Delete', $url, [
+                            'data-method' => 'POST',
+                            'data-confirm' => 'Are you sure?'
                         ]);
                     }
                 ],
