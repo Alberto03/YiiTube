@@ -21,7 +21,7 @@ class ContactCest
     {
         $I->submitForm('#contact-form', []);
         $I->see('Contact', 'h1');
-        $I->seeValidationError('Name cannot be blank');
+        $I->seeValidationError('Name non può essere vuoto.');
         $I->seeValidationError('Email cannot be blank');
         $I->seeValidationError('Subject cannot be blank');
         $I->seeValidationError('Body cannot be blank');
