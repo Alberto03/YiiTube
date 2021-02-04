@@ -21,11 +21,11 @@ class ContactCest
     {
         $I->submitForm('#contact-form', []);
         $I->see('Contact', 'h1');
-        $I->seeValidationError('Name non può essere vuoto.');
-        $I->seeValidationError('Email cannot be blank');
-        $I->seeValidationError('Subject cannot be blank');
-        $I->seeValidationError('Body cannot be blank');
-        $I->seeValidationError('The verification code is incorrect');
+        $I->seeValidationError( \Yii::t('yii', '{attribute} cannot be blank.', ['attribute'=>'Name']) );
+        $I->seeValidationError(\Yii::t('yii', '{attribute} cannot be blank.', ['attribute'=>'Email']));
+        $I->seeValidationError(\Yii::t('yii', '{attribute} cannot be blank.', ['attribute'=>'Subject']));
+        $I->seeValidationError(\Yii::t('yii', '{attribute} cannot be blank.', ['attribute'=>'Body']));
+        $I->seeValidationError(\Yii::t('yii', 'The verification code is incorrect.'));
     }
 
     public function checkContactSubmitNotCorrectEmail(FunctionalTester $I)
