@@ -13,7 +13,10 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
+           // 'csrfParam' => '_csrf-frontend',
+            'parsers' => [
+                'application/json' => 'yii\web\jsonParser'
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -40,7 +43,9 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'enableStrictParsing' => true,
             'rules' => [
+                ['class'=>'yii\rest\UrlRule', 'controller'=>'videoApi']
             ],
         ],
         'assetManager' => [
