@@ -5,8 +5,8 @@ use yii\rest\ActiveController;
 
 class VideoApiController extends ActiveController
 {
-    public $modelClass = "common\models\Video";
+    public $modelClass = "backend\models\VideoResourceApi";
 
-
+    
     
 }
