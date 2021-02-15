@@ -10,9 +10,9 @@ class VideoApiController extends ActiveController
     public function behaviors()
     {
         $behaviors = parent::behaviors();
-        $behaviors['rateLimiter']['enableRateLimitHeaders'] = true;
+        unset($behaviors['rateLimiter']);
 
-        $behaviors['contentNegotiator']['response'] = ['acceptParams'=> ['version'=> 'v12']];
+       // $behaviors['contentNegotiator']['response'] = ['acceptParams'=> ['version'=> 'v1']];
 
         return $behaviors;
     }
