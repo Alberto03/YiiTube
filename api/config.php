@@ -20,7 +20,11 @@ return [
         //    'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class'=>'yii\rest\UrlRule', 'controller'=>'video-api']
+                [
+                    'class'=>'yii\rest\UrlRule', 
+                    'controller'=>'videoApi'
+                  //  'except' => ['delete', 'create', 'update'],
+                ]
             ],
         ],
 
