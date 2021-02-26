@@ -7,6 +7,10 @@ use yii\rest\Controller;
 class VideoApiController extends  ActiveController
 {
     public $modelClass = "api\common\models\VideoResourceApi";
+    public $serializer = [
+        'class' => 'yii\rest\Serializer',
+        'collectionEnvelope' => 'items',
+    ];
 
     public function actions()
     {

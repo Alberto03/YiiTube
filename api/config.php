@@ -15,6 +15,7 @@ return [
 
     'components' => [
 
+
         'urlManager' => [
             'enablePrettyUrl' => true,
         //    'enableStrictParsing' => true,
