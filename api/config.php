@@ -23,7 +23,7 @@ return [
             'rules' => [
                 [
                     'class'=>'yii\rest\UrlRule', 
-                    'controller'=>'videoApi'
+                    'controller'=>'video-api'
                   //  'except' => ['delete', 'create', 'update'],
                 ]
             ],
